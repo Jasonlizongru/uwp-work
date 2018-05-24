@@ -1,0 +1,95 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Photo.View.Camera"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Photo.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+                        >
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <SlideNavigationTransitionInfo/>
+                <!--<CommonNavigationTransitionInfo/>-->
+                <!--<ContinuumNavigationTransitionInfo/>-->
+                <!--<DrillInNavigationTransitionInfo/>-->
+                <!--<EntranceNavigationTransitionInfo/>-->
+                <!--<SuppressNavigationTransitionInfo/>-->
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Resource/Lines 9.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="camera.(Grid.Row)" Value="0"/>
+                        <Setter Target="camera.(Grid.Column)" Value="0"/>
+                        <Setter Target="camera.(Grid.ColumnSpan)" Value="2" />
+                        <Setter Target="camera.(Grid.RowSpan)" Value="1" />
+                        <Setter Target="video.(Grid.Row)" Value="1"/>
+                        <Setter Target="video.(Grid.Column)" Value="0"/>
+                        <Setter Target="video.(Grid.ColumnSpan)" Value="2" />
+                        <Setter Target="video.(Grid.RowSpan)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="camera.(Grid.Row)" Value="0"/>
+                        <Setter Target="camera.(Grid.Column)" Value="0"/>
+                        <Setter Target="camera.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="camera.(Grid.RowSpan)" Value="2" />
+                        <Setter Target="video.(Grid.Row)" Value="0"/>
+                        <Setter Target="video.(Grid.Column)" Value="1"/>
+                        <Setter Target="video.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="video.(Grid.RowSpan)" Value="2" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel x:ConnectionId='2' Name="one" Margin="-91,98,91,222" Grid.RowSpan="2" />
+        <Button x:ConnectionId='3' x:Name="camera" HorizontalAlignment="Center" Grid.RowSpan="2"                     >
+            <StackPanel>
+                <TextBlock FontFamily="Segoe UI Emoji" FontSize="120" Text="&#x1F4F8;" />
+                <!--<TextBlock Text="拍照" FontSize="50" HorizontalAlignment="Center"/>-->
+            </StackPanel>
+        </Button>
+        <Button x:ConnectionId='4' x:Name="video" Grid.Column="1" HorizontalAlignment="Center" Grid.RowSpan="2"                    >
+            <StackPanel>
+                <TextBlock FontFamily="Segoe UI Emoji" FontSize="120" Text="&#x1F3A5;" />
+                <!--<TextBlock Text="录像" FontSize="50" HorizontalAlignment="Center"/>-->
+            </StackPanel>
+        </Button>
+        <!--<Button Background="White">
+            <Ellipse Height="200" Width="200">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="../Resource/background1.jpg"/>
+                </Ellipse.Fill>
+            </Ellipse>
+        </Button>-->
+        <!--<Ellipse Height="200" Width="200" IsTapEnabled="True">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="../Resource/background1.jpg"/>
+            </Ellipse.Fill>
+        </Ellipse>-->
+    </Grid>
+</Page>
+

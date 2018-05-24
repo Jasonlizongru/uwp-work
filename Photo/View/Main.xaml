@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="Photo.View.Main"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Photo.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:imgData="using:Photo.Models"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <SlideNavigationTransitionInfo/>
+                <!--<CommonNavigationTransitionInfo/>-->
+                <!--<ContinuumNavigationTransitionInfo/>-->
+                <!--<DrillInNavigationTransitionInfo/>-->
+                <!--<EntranceNavigationTransitionInfo/>-->
+                <!--<SlideNavigationTransitionInfo/>-->
+                <!--<SuppressNavigationTransitionInfo/>-->
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Resource/Mosaic 18.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="70" />
+        </Grid.RowDefinitions>
+        <GridView ItemsSource="{x:Bind Images}"
+                  IsItemClickEnabled="True"
+                  ItemClick="GridView_ItemClick">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="5,12,5,12">
+                        <Image Width="180" Height="120" Source="{Binding}"/>
+                        <!--<TextBlock FontSize="20" HorizontalAlignment="Center" Text="{Binding _cache}"/>-->
+                        <!--<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <Button ToolTipService.ToolTip="编辑" FontFamily="Segoe MDL2 Assets" FontSize="15" Content="&#xE1C2;"/>
+                            <Button ToolTipService.ToolTip="收藏" FontFamily="Segoe MDL2 Assets" FontSize="15" Content="&#xE1CE;"/>
+                            <Button ToolTipService.ToolTip="删除" FontFamily="Segoe MDL2 Assets" FontSize="15" Content="&#xE107;"/>
+                        </StackPanel>-->
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Name="openMore" Tapped="openMore_Tapped">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#c524ff" Offset="0.0" />
+                        <GradientStop Color="#1c6dff" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="OpenFile" Foreground="White"/>
+                    <TextBlock Margin="9 0 0 0" Foreground="White">打开其他位置图片</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

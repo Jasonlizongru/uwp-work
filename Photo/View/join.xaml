@@ -1,0 +1,118 @@
+﻿<Page
+    x:Class="Photo.View.join"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Photo.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    Loaded="Page_Loaded">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <SlideNavigationTransitionInfo/>
+                <!--<CommonNavigationTransitionInfo/>-->
+                <!--<ContinuumNavigationTransitionInfo/>-->
+                <!--<DrillInNavigationTransitionInfo/>-->
+                <!--<EntranceNavigationTransitionInfo/>-->
+                <!--<SlideNavigationTransitionInfo/>-->
+                <!--<SuppressNavigationTransitionInfo/>-->
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Resource/Geometric 3.png" Stretch="UniformToFill" />
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 60 0 0">
+                <SymbolIcon Symbol="Pictures" Width="25" Height="25" Foreground="White"/>
+                <TextBlock Text="选择模式" Margin="8 0 0 0" FontSize="18" Foreground="White"/>
+            </StackPanel>
+            <GridView Grid.Row="1" Margin="20 25 15 15" IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
+                <GridViewItem Name="item_ver2" Margin="7">
+                    <Image Name="ver2" Tag="1" Source="../Resource/pingtu1.png" Width="150" Height="150"/>
+                </GridViewItem>
+                <GridViewItem Name="item_hor2" Margin="7">
+                    <Image Name="hor2" Tag="2" Source="../Resource/pingtu2.png" Width="150" Height="150"/>
+                </GridViewItem>
+                <!--<GridViewItem Name="ver3" Tag="3" Margin="7">
+                    <Image Source="../Resource/pingtu3.png" Width="150" Height="150"/>
+                </GridViewItem>-->
+            </GridView>
+            <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5 65 0 70" Tapped="Button_Tapped">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#c524ff" Offset="0.0" />
+                        <GradientStop Color="#1c6dff" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel Orientation="Horizontal" IsTapEnabled="True">
+                    <SymbolIcon Symbol="OpenFile" Width="30" Height="30" Foreground="White"/>
+                    <TextBlock Text="选择图片" Margin="8 0 0 0" FontSize="20" Foreground="White"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <!--<RelativePanel Grid.Column="1">
+            <AppBarButton Name="ok" RelativePanel.AlignLeftWithPanel="True" Icon="Accept" Label="完成" Margin="30 0 0 0" Tapped="ok_Tapped"/>
+            --><!--<AppBarButton RelativePanel.AlignHorizontalCenterWithPanel="True" Icon="Clear"/>--><!--
+            <AppBarButton Name="cancle" RelativePanel.AlignRightWithPanel="True" Icon="Cancel" Label="取消" Margin="0 0 30 0" Tapped="cancle_Tapped"/>
+        </RelativePanel>
+        <Border Grid.Column="1" BorderBrush="Black" BorderThickness="5" Width="520" Height="520" Margin="0 15 0 0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" HorizontalScrollMode="Enabled">
+                <canvas:CanvasControl x:Name="joinCanvas"
+                                  Width="520"
+                                  Height="520"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Draw="joinCanvas_Draw"
+                              ManipulationMode="TranslateX,TranslateY"
+                              />
+            </ScrollViewer>
+            
+        </Border>-->
+        <!--<RelativePanel Grid.Column="1">
+            <AppBarButton Name="ok" RelativePanel.AlignLeftWith="canvasBorder" RelativePanel.AlignRightWith="canvasBorder" Icon="Accept" Label="完成" Margin="30 0 0 0" Tapped="ok_Tapped"/>
+            <AppBarButton RelativePanel.AlignHorizontalCenterWithPanel="True" Icon="Clear"/>
+            <AppBarButton Name="cancle" RelativePanel.AlignRightWithPanel="True" Icon="Cancel" Label="取消" Margin="0 0 30 0" Tapped="cancle_Tapped"/>
+            
+        </RelativePanel>-->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Height="100">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <AppBarButton Name="ok" Grid.Column="0" HorizontalAlignment="Right" Icon="Accept" Label="完成" Margin="0 0 220 0" Tapped="ok_Tapped" Foreground="White" />
+                <AppBarButton Name="cancle" Grid.Column="1" HorizontalAlignment="Left" Icon="Cancel" Label="取消" Margin="220 0 0 0" Tapped="cancle_Tapped" Foreground="White"/>
+            </Grid>
+            <Border Name="canvasBorder" Grid.Row="1" BorderBrush="#464646" BorderThickness="3" Width="520" Height="520" Margin="0 5 0 0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" HorizontalScrollMode="Enabled">
+                    <canvas:CanvasControl x:Name="joinCanvas"
+                                  Width="520"
+                                  Height="520"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Draw="joinCanvas_Draw"
+                              ManipulationMode="TranslateX,TranslateY"
+                              />
+                </ScrollViewer>
+
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
